@@ -15,9 +15,27 @@ class CategorySeeder extends Seeder
     {
         //
         Category::create([
-            'name' =>'Customer',
-            'description' => 'customer@gmail.com',
-            'active' => 'customer@gmail.com',
+                'name' =>' هاتف ذكيه',
+                'description' => 'ليدن جميع الانواع',
+                'active' => 1,
+            ]);
+
+        Category::create([
+                'name' =>'أجهزه اللكترونيه',
+                'description' => 'جميع انواع الاجهزه',
+                'active' => 1,
+            ]);
+
+            Category::create([
+                'name' =>'ملابس ',
+                'description' => ' افضل انواع الملابس',
+                'active' => 1,
+                ]);
+
+            Category::create([
+                'name' =>'ادوات منزليه',
+                'description' => 'جميع انوع الملابس',
+                'active' => 1,
             ]);
     }
 }
