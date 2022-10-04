@@ -3,12 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\admin\SettingController;
-use App\Http\Controllers\admin\CustomerController;
-use App\Http\Controllers\admin\DashboardController;
-use App\Http\Controllers\admin\CategoryController;
-use App\Http\Controllers\Auth\AdminLoginController;
-use App\Http\Controllers\Auth\CustomerLoginController;
+use App\Http\Controllers\Admin\{SettingController,CustomerController,DashboardController,CategoryController};
+use App\Http\Controllers\Page\ProductPageController;
+
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -41,9 +38,12 @@ Route::group(['namespace' => 'Auth','localeSessionRedirect','localizationRedirec
 
     });
 
+    Route::prefix('page')->group(function () {
+        Route::get('/product',[ProductPageController::class,'cat']);
+    });
+
     Route::group(
         [
-
             'middleware' => [ 'auth:admin']
         ], function () {
         Route::prefix('admin')->group(function () {
