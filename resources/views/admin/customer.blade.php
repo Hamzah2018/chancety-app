@@ -142,7 +142,8 @@
                                     data-email="{{ $customer->email}}"
                                     data-second_email="{{ $customer->second_email}}"
                                     data-toggle="modal" href="#exampleModal2"
-                                    title="تعديل"><i class="las la-pen"></i></a>
+                                    title="تعديل">
+                                    <i class="las la-pen"></i></a>
                                      <button class="btn btn-outline-danger btn-sm"
                                                 data-id="{{$customer->id}}"
                                                 data-fname="{{ $customer->fname }}" data-toggle="modal"

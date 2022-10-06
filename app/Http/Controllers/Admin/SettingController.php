@@ -94,7 +94,7 @@ class SettingController extends Controller
         // $info = $request->except('_token','_method','login');
         $info = $request->except('_token','_method','logo');
               foreach($info as $key =>$value){
-        Setting::where('type',$key)->update(['value' => $value]);
+        Setting::where('key',$key)->update(['value' => $value]);
               }
               if($request -> hasFile('logo')){
                 $logo_name = $request->file('logo')->getClientOriginalName();
