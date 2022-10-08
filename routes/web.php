@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Admin\{SettingController,CustomerController,DashboardController,CategoryController};
+use App\Http\Controllers\Admin\{SettingController,CustomerController,DashboardController,CategoryController,SubCategoryController};
 use App\Http\Controllers\Page\ProductPageController;
 
 use Illuminate\Support\Facades\Auth;
@@ -56,6 +56,7 @@ Route::group(['namespace' => 'Auth','localeSessionRedirect','localizationRedirec
     Route::get('/dashboard',[DashboardController::class,'index']);
     Route::resource('setting', SettingController::class);
     Route::resource('catogray', CategoryController::class);
+    Route::resource('sub-catogray', SubCategoryController::class);
     });
     Route::get('/dashboard',[HomeController::class, 'dashboard'])->name('dashboard'); });
 // Route::resource('/', CustomerController::class);
