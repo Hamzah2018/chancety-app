@@ -40,6 +40,8 @@ Route::group(['namespace' => 'Auth','localeSessionRedirect','localizationRedirec
 
     Route::prefix('page')->group(function () {
         Route::get('/product',[ProductPageController::class,'cat']);
+        Route::get('/product/show/{id}',[ProductPageController::class,'show'])->name('page.sub_show');
+
     });
 
     Route::group(

@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Roboto:wght@100;300;400;500&display=swap');
 :root {
- 
+
   --light-color:#ffffe0;
   --dark-color: #200202;
   --green-color: #6d7b7b;
@@ -63,11 +63,15 @@ body {
 .navbar .navbar-toggler[aria-expanded="true"] {
   border-color: var(--green-color);
 }
+.navbar li.active a {
+    color:#ffea00;
+}
+
 /* End Navbar */
 /* Start Landing */
 .landing {
-  background-color: var(--dark-color);
-  min-height: calc(100vh - 72px);
+    background-color: var(--dark-color);
+    min-height: calc(100vh - 72px);
 }
 /* End Landing */
 /* Start Features */

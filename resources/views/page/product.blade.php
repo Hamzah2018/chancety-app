@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>apartment</title>
+    <title>Catagory</title>
     <!-- <link rel="stylesheet" href="css/bootstrap.min.css" /> -->
     <link rel="stylesheet" href="{{URL::asset('assets/mydesign/css/bootsrap_rtl.css')}}" />
     <link rel="stylesheet" href="{{URL::asset('assets/mydesign/css/all.min.css')}}"/>
@@ -39,6 +39,7 @@
             @foreach ($categories as $category)
             <li class="nav-item">
               <a class="nav-link p-2 p-lg-3" href="" >{{$category->name}}</a>
+              <a href="{{route('page.sub_show',$category->id)}}" class="btn-warning btn-sm" role="button" aria-pressed="true"><i class="far fa-eye"></i></a>
             </li>
             @endforeach
           <div></div>
@@ -52,19 +53,7 @@
       </div>
 
     </nav>
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="{{URL::asset('assets/mydesign/imgs/carousel/bed.jpg')}}" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="{{URL::asset('assets/mydesign/imgs/carousel/livingroom.jpg')}}" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="{{URL::asset('assets/mydesign/imgs/carousel/kitchen.jpg')}}" class="d-block w-100" alt="...">
-        </div>
-      </div>
-    </div>
+
     <div class="features text-center pt-5 pb-5">
       <div class="container">
         <div class="main-title mt-5 mb-5 position-relative">
@@ -372,6 +361,13 @@
         </div>
       </div>
     </div>
+    <!-- JQuery min js -->
+    <script src="{{URL::asset('assets/plugins/jquery/jquery.min.js')}}"></script>
+    <script>
+        $('.navbar li').click(function(){
+        $(this).addClass('active');
+    })
+    </script>
     <script src="{{URL::asset('assets/mydesign/js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{URL::asset('assets/mydesign/js/all.min.js')}}"></script>
   </body>

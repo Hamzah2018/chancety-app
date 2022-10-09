@@ -63,6 +63,8 @@ class SubCategoryController extends Controller
     public function show($id)
     {
         //
+
+
     }
 
     /**
