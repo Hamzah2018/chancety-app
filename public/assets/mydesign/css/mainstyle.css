@@ -63,6 +63,11 @@ body {
 .navbar .navbar-toggler[aria-expanded="true"] {
   border-color: var(--green-color);
 }
+.navbar li button {
+    background-color: var(--dark-color);
+    border: #ff3150;
+    color:#ffea00;
+}
 .navbar li.active a {
     color:#ffea00;
 }

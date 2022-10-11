@@ -12,47 +12,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    @livewireStyles
 
 </head>
   <body>
-    <nav class="navbar navbar-expand-lg sticky-top ">
-      <div class="container">
-        <a class="navbar-brand" href="#">
-          <img src="{{URL::asset('assets/mydesign/imgs/logo.png')}}"  width="100px;" height="60px" alt="" />
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#main"
-          aria-controls="main"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <i class="fa-solid fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="main">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            {{-- <li class="nav-item">
-              <a class="nav-link p-2 p-lg-3 active" aria-current="page" href="#">الرئيسية</a>
-            </li> --}}
-            @foreach ($categories as $category)
-            <li class="nav-item">
-              <a class="nav-link p-2 p-lg-3" href="" >{{$category->name}}</a>
-              <a href="{{route('page.sub_show',$category->id)}}" class="btn-warning btn-sm" role="button" aria-pressed="true"><i class="far fa-eye"></i></a>
-            </li>
-            @endforeach
-          <div></div>
-          <div class=" ps-3 pe-3 d-none d-lg-block">
-            <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
-          </div>
 
-
-        </div>
-
-      </div>
-
-    </nav>
+    <livewire:items />
 
     <div class="features text-center pt-5 pb-5">
       <div class="container">
@@ -361,6 +326,7 @@
         </div>
       </div>
     </div>
+    @livewireScripts
     <!-- JQuery min js -->
     <script src="{{URL::asset('assets/plugins/jquery/jquery.min.js')}}"></script>
     <script>

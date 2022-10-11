@@ -23,7 +23,8 @@ class ProductPageController extends Controller
     //    foreach($sub_categories as $sub){
     //     echo $sub->name .'<br>';
     //    }
-       return view('page.sub_show',compact( ['sub_categories']));
+
+       return view('page.product',compact( ['sub_categories']));
         // return response($category);
     }
 }

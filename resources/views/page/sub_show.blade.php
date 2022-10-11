@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>Document</title>
 </head>
 <body>
@@ -21,8 +22,6 @@
                  <th>الاصناف الفرعيه</th>
                 </tr>
               </thead>
-
-
         </thead>
         <tbody>
             @foreach ($sub_categories as $sub )
@@ -32,8 +31,10 @@
                 <td>{{ $sub->name}}</td>
             </tr>
             @endforeach
-        </tbody
+        </tbody>
       </table>
+
+
     <script src="{{URL::asset('assets/mydesign/js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{URL::asset('assets/mydesign/js/all.min.js')}}"></script>
 </body>
