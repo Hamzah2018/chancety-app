@@ -31,7 +31,7 @@
                 <ul class="slide-menu">
                     <li><a class="slide-item" href="{{ url('/admin' . $page='/catogray') }}">الاصناف</a></li>
                     <li><a class="slide-item" href="{{ url('/admin' . $page='/sub-catogray') }}">  الاصناف الفرعيه</a></li>
-                    {{-- <li><a class="slide-item" href="{{ url('/admin' . $page='product-cart') }}">Cart</a></li> --}}
+                    <li><a class="slide-item" href="{{ url('/admin' . $page='/product') }}">المنتجات</a></li>
                 </ul>
             </li>
             <li class="side-item side-item-category"> قائة الاحسابات</li>

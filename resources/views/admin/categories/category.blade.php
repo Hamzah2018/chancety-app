@@ -155,6 +155,7 @@
                                                 data-target="#modaldemo9">حذف</button>
                                                 {{-- <a href="{{route('category.show',$category->id)}}" class="btn-warning btn-sm" role="button" aria-pressed="true"><i class="far fa-eye"></i></a> --}}
                                             </td>
+                                            
                                             <td></td>
                             </tr>
                             @endforeach
@@ -180,8 +181,6 @@
 					</div>
 					<div class="modal-body">
 							<div class="card-body pt-0">
-
-
                                 <form action="{{route('catogray.store')}}" method="post" enctype="multipart/form-data" class="form-horizontal" >
                                     {{-- {{ csrf_feild()}} --}}
                                     @csrf

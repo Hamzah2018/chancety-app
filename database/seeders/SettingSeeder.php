@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\DB;
 
 class SettingSeeder extends Seeder
 {
+
+
     public function run()
     {
         DB::table('settings')->delete();
@@ -24,5 +26,6 @@ class SettingSeeder extends Seeder
         ];
 
         DB::table('settings')->insert($data);
+        // php artisan db:seed --class=SettingSeeder
     }
 }
