@@ -15,8 +15,20 @@ class CategoryController extends Controller
     {
         //
         $categories = Category::all();
-        return view('admin.categories.category',compact( 'categories'));
+        return view('admin.category',compact( 'categories'));
     }
+    public function datatable(Request $request)
+    {
+        $items = Category::query()->search($request)->orderBy('id', 'desc');
+        dd($items);
+        return $this->filterDataTable($items, $request);
+    }
+
+    public function ajax()
+     {
+        // return view('customers.ajax');
+      return view('categories.ajax');
+       }
 
     public function create()
     {

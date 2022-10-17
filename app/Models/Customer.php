@@ -11,7 +11,7 @@ use Laravel\Sanctum\HasApiTokens;
 class Customer extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-    
+
 
     /**
      * The attributes that are mass assignable.
@@ -34,13 +34,9 @@ class Customer extends Authenticatable
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
 }
 

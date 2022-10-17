@@ -55,9 +55,15 @@ Route::group(['namespace' => 'Auth','localeSessionRedirect','localizationRedirec
         Route::get('data/datatables', [CustomerController::class, 'datatable'])->name('datatable');
         // Route::post('activate/{id}', [CustomerController::class, 'operations'])->name('active');
     });
+    Route::resource('catogray', CategoryController::class);
+    Route::group(['prefix' => 'categories', 'as' => 'categories.'], function () {
+        Route::get('data/datatables', [CategoryController::class, 'datatable'])->name('datatable');
+        // Route::post('activate/{id}', [CategoryController::class, 'operations'])->name('active');
+    });
+    //  admin..category
     Route::get('/dashboard',[DashboardController::class,'index']);
     Route::resource('setting', SettingController::class);
-    Route::resource('catogray', CategoryController::class);
+
     Route::resource('sub-catogray', SubCategoryController::class);
     Route::resource('product', ProductController::class);
 

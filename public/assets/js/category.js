@@ -1,11 +1,8 @@
 window.columns = [
     {data: 'id'},
-    {data: 'fname'},
-    {data: 'lname'},
-    {data: 'password'},
-    {data: 'email'},
-    {data: 'user_type '},
-    {data: 'second_email'},
+    {data: 'name'},
+    {data: 'description'},
+    {data: 'active'},
     // {data: null},
     {data: 'options'},
 ];

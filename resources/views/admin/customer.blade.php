@@ -99,7 +99,7 @@
                 <div class="table-responsive-lg"  style="overflow-x:auto;">
                     {{-- <div class="table-responsive-lg"  > --}}
                         {{-- <table class="table text-md-nowrap" id="example2"> --}}
-                    <table class="table text-md-nowrap key-buttons  "    data-replace="jtable" id="example" aria-label="JS Datatable" data-locale="en" data-search="true">
+                    <table class="table text-md-nowrap key-buttons"    data-replace="jtable" id="example" aria-label="JS Datatable" data-locale="en" data-search="true">
                         <thead >
                             <tr>
                                 <th class="border-bottom-0">#</th>
@@ -112,7 +112,6 @@
                                 <th class="wd-15p border-bottom-0"> الايمل الثاني</th>
                                 <th class="w-25 border-bottom-0"> العمليات </th>
                                 <th class="w-25 border-bottom-0">  </th>
-
                             </tr>
                         </thead>
                         <tbody>
