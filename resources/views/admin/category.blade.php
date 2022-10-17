@@ -1,113 +1,96 @@
 @extends('layouts.master')
 @section('css')
-<!-- Internal Data table css -->
-<link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    <!-- Internal Data table css -->
+    <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    <link href="{{URL::asset('assets/plugins/datatable/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet" />
+    <link href="{{URL::asset('assets/plugins/datatable/css/buttons.bootstrap4.min.css')}}" rel="stylesheet">
+    <link href="{{URL::asset('assets/plugins/datatable/css/responsive.bootstrap4.min.css')}}" rel="stylesheet" />
+    <link href="{{URL::asset('assets/plugins/datatable/css/jquery.dataTables.min.css')}}" rel="stylesheet">
+    <link href="{{URL::asset('assets/plugins/datatable/css/responsive.dataTables.min.css')}}" rel="stylesheet">
+    <link href="{{URL::asset('assets/plugins/select2/css/select2.min.css')}}" rel="stylesheet">
+@section('title')
+الاصناف الفرعيه
+@stop
 
-<link href="{{URL::asset('assets/plugins/datatable/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet" />
-<link href="{{URL::asset('assets/plugins/datatable/css/buttons.bootstrap4.min.css')}}" rel="stylesheet">
-<link href="{{URL::asset('assets/plugins/datatable/css/responsive.bootstrap4.min.css')}}" rel="stylesheet" />
-<link href="{{URL::asset('assets/plugins/datatable/css/jquery.dataTables.min.css')}}" rel="stylesheet">
-<link href="{{URL::asset('assets/plugins/datatable/css/responsive.dataTables.min.css')}}" rel="stylesheet">
-<link href="{{URL::asset('assets/plugins/select2/css/select2.min.css')}}" rel="stylesheet">
- <!---Internal Owl Carousel css-->
-<link href="{{ URL::asset('assets/plugins/owl-carousel/owl.carousel.css') }}" rel="stylesheet">
-<!---Internal  Multislider css-->
-<link href="{{ URL::asset('assets/plugins/multislider/multislider.css') }}" rel="stylesheet">
-<link href="{{ URL::asset('assets/plugins/notify/css/notifIt.css') }}" rel="stylesheet" />
-{{-- <link href="{{URL::asset('assets/datatable/css/datatable.min.css')}}" rel="stylesheet" /> --}}
-<style>
-    body {
-        font-size: 12pt;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-                      Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    }
-</style>
 @endsection
 @section('page-header')
 				<!-- breadcrumb -->
 				<div class="breadcrumb-header justify-content-between">
 					<div class="my-auto">
 						<div class="d-flex">
-							<h4 class="content-title mb-0 my-auto">الصنف</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ المتاحه</span>
+							<h4 class="content-title mb-0 my-auto">الاعدادات</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ الاقسام</span>
 						</div>
 					</div>
-
 				</div>
 				<!-- breadcrumb -->
 @endsection
 @section('content')
 
     @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
-@if(session()->has('Add'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>{{ session()->get('Add') }}</strong>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-@endif
+    @if(session()->has('Add'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>{{ session()->get('Add') }}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
 
-@if(session()->has('delete'))
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>{{ session()->get('delete') }}</strong>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-@endif
+    @if(session()->has('delete'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>{{ session()->get('delete') }}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
 
-@if(session()->has('edit'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>{{ session()->get('edit') }}</strong>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-@endif
-				<!-- row -->
+    @if(session()->has('edit'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>{{ session()->get('edit') }}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
+    <!-- row -->
 				<div class="row">
 	<!--div-->
     <div class="col-xl-12">
         <div class="card mg-b-20">
             <div class="card-header pb-0">
                 <div class="d-flex justify-content-between">
-
-                    <div class="col-sm-6 col-md-4 col-xl-3">
                         <a class="modal-effect btn btn-outline-primary rounded-pill" data-effect="effect-scale" data-toggle="modal" href="#modaldemo8">إضافة صنف</a>
                     </div>
-                    <i class="mdi mdi-dots-horizontal text-gray"></i>
+
                 </div>
-                {{-- <p class="tx-12 tx-gray-500 mb-2">Example of Valex Striped Rows.. <a href="">Learn more</a></p> --}}
-            </div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    {{--  --}}
-                    <div class="table-responsive-lg"  style="overflow-x:auto;">
-                        <table class="table text-md-nowrap key-buttons"    data-replace="jtable" id="example" aria-label="JS Datatable" data-locale="en" data-search="true">
-                                 <thead >
-                                     <tr>
-                                         <th class="border-bottom-0">#</th>
-                                         <th class="wd-15p border-bottom-0">رقم التصنيف </th>
-                                         <th class="wd-15p border-bottom-0">أسم التصنيف</th>
-                                         <th class="wd-15p border-bottom-0">   وصف التصنيف </th>
-                                         <th class="wd-15p border-bottom-0"> فعال اول</th>
-                                         <th class="w-25 border-bottom-0"> العمليات </th>
-                                         {{-- <th class="w-25 border-bottom-0">  </th> --}}
-                                     </tr>
-                                 </thead>
-                                 <tbody>
-                                     @php
-                                     $i = 0;
-                                     @endphp
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="datatable" class="table key-buttons text-md-nowrap">
+                                    <thead>
+                                        <tr>
+                                            <th class="border-bottom-0">#</th>
+                                            <th class="wd-15p border-bottom-0">رقم التصنيف </th>
+                                            <th class="wd-15p border-bottom-0">أسم التصنيف</th>
+                                            <th class="wd-15p border-bottom-0">   وصف التصنيف </th>
+                                            <th class="wd-15p border-bottom-0"> فعال اول</th>
+                                            <th class="w-25 border-bottom-0"> العمليات </th>
+                                            {{-- <th class="w-25 border-bottom-0">  </th> --}}
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @php
+                                        $i = 0;
+                                        @endphp
                                      @foreach ($categories as $category)
                                          @php
                                          $i++
@@ -150,8 +133,6 @@
                                                          data-target="#modaldemo9">حذف</button>
                                                          {{-- <a href="{{route('category.show',$category->id)}}" class="btn-warning btn-sm" role="button" aria-pressed="true"><i class="far fa-eye"></i></a> --}}
                                                      </td>
-
-                                                     <td></td>
                                      </tr>
                                      @endforeach
                                  </tbody>
@@ -231,7 +212,7 @@
            <!-- edit -->
            {{-- id="exampleModal2" --}}
 
-           <div class="modal fade"  id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+           <div class="modal fade"   tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
            aria-hidden="true">
           <div class="modal-dialog" role="document">
               <div class="modal-content">
@@ -309,45 +290,29 @@
 
 		<!-- main-content closed -->
 @endsection
-    @section('js')
-    {{-- @push('scripts') --}}
-    <!--JSGrid css-->
+@section('js')
+<!-- Internal Data tables -->
+<script src="{{URL::asset('assets/plugins/datatable/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/dataTables.dataTables.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/dataTables.responsive.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/responsive.dataTables.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/jquery.dataTables.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/dataTables.bootstrap4.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/dataTables.buttons.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/buttons.bootstrap4.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/jszip.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/pdfmake.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/vfs_fonts.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/buttons.html5.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/buttons.print.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/buttons.colVis.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/dataTables.responsive.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/responsive.bootstrap4.min.js')}}"></script>
+<!--Internal  Datatable js -->
+<script src="{{URL::asset('assets/js/table-data.js')}}"></script>
+<script src="{{URL::asset('assets/js/modal.js')}}"></script>
+<script>
     <script>
-            window.datatable_url = "{{ route('categories.datatable') }}";
-        // {{--        window.create = "{{ route('page.create') }}";--}}
-    </script>
-    <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-    {{-- <script src="{{ asset('assets/custom/js/jquery.dataTables.min.js') }}"></script> --}}
-    <script src="{{ asset('assets/js/category.js')}}"></script>
-    <script src="{{ asset('assets/js/data-ajax.js')}}"></script>
-
-    {{-- @endpush --}}
-
-   <!-- Internal Data tables -->
-   {{-- <script src="{{URL::asset('assets/plugins/jquery/jquery.min.js')}}"></script> --}}
-
-   {{-- <script src="{{URL::asset('assets/plugins/datatable/js/jquery.dataTables.min.js')}}"></script> --}}
-   {{-- <script src="{{URL::asset('assets/plugins/datatable/js/dataTables.dataTables.min.js')}}"></script> --}}
-   {{-- <script src="{{URL::asset('assets/plugins/datatable/js/dataTables.responsive.min.js')}}"></script> --}}
-   {{-- <script src="{{URL::asset('assets/plugins/datatable/js/responsive.dataTables.min.js')}}"></script> --}}
-   {{-- <script src="{{URL::asset('assets/plugins/datatable/js/jquery.dataTables.js')}}"></script> --}}
-   {{-- <script src="{{URL::asset('assets/plugins/datatable/js/dataTables.bootstrap4.js')}}"></script> --}}
-   <script src="{{URL::asset('assets/plugins/datatable/js/dataTables.buttons.min.js')}}"></script>
-   <script src="{{URL::asset('assets/plugins/datatable/js/buttons.bootstrap4.min.js')}}"></script>
-   <script src="{{URL::asset('assets/plugins/datatable/js/jszip.min.js')}}"></script>
-   <script src="{{URL::asset('assets/plugins/datatable/js/pdfmake.min.js')}}"></script>
-   <script src="{{URL::asset('assets/plugins/datatable/js/vfs_fonts.js')}}"></script>
-   <script src="{{URL::asset('assets/plugins/datatable/js/buttons.html5.min.js')}}"></script>
-   <script src="{{URL::asset('assets/plugins/datatable/js/buttons.print.min.js')}}"></script>
-   <script src="{{URL::asset('assets/plugins/datatable/js/buttons.colVis.min.js')}}"></script>
-   {{-- <script src="{{URL::asset('assets/plugins/datatable/js/dataTables.responsive.min.js')}}"></script> --}}
-   <script src="{{URL::asset('assets/plugins/datatable/js/responsive.bootstrap4.min.js')}}"></script>
-   <!--Internal  Datatable js -->
-   <script src="{{URL::asset('assets/js/table-data.js')}}"></script>
-   <!-- Internal Prism js-->
-   <script src="{{URL::asset('assets/plugins/prism/prism.js')}}"></script>
-   {{-- <script src="{{URL::asset('assets/datatable/datatable.min.js')}}"></script> --}}
-   <script>
     $('#exampleModal2').on('show.bs.modal', function(event) {
         var button = $(event.relatedTarget)
         var id = button.data('id')
@@ -379,12 +344,12 @@
     })
 </script>
 
-{{-- <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script> --}}
+<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 {{-- <script src = "http://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer ></script> --}}
-{{-- <script>
+ <script>
    $(document).ready(function () {
         $('#datatable').DataTable();
    });
-</script> --}}
+</script>
 @endsection
 
